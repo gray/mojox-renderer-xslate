@@ -4,8 +4,8 @@ use strict;
 use warnings;
 use parent qw(Mojo::Base);
 
-use Mojo::Command ();
 use File::Spec ();
+use Mojo::Command;
 use Text::Xslate ();
 use Try::Tiny;
 
@@ -22,22 +22,20 @@ sub build {
 
 sub _init {
     my ($self, %args) = @_;
+
     my $app = $args{mojo} || $args{app};
     my $cache_dir;
-    my @path;
-    if($app) {
+    my @path = $app->home->rel_dir('templates');
+
+    if ($app) {
         $cache_dir = $app->home->rel_dir('tmp/compiled_templates');
-        @path      = (
-            Mojo::Command->new->get_all_data(
-                $app->renderer->default_template_class,
-            ),
+        push @path, Mojo::Command->new->get_all_data(
+            $app->renderer->default_template_class,
         );
     }
     else {
         $cache_dir = File::Spec->tmpdir;
     }
-
-    unshift @path, $app->home->rel_dir('templates'),
 
     my %config = (
         cache_dir => $cache_dir,
