@@ -27,7 +27,10 @@ my %conf = (
     clean          => { FILES => 'MojoX-Renderer-Xslate-*' },
 );
 
-my $eumm_version=$ExtUtils::MakeMaker::VERSION;
+my $eumm_version =  do {
+    no warnings 'numeric';
+    eval $ExtUtils::MakeMaker::VERSION;
+};
 delete $conf{META_MERGE} if $eumm_version < 6.46;
 $conf{PREREQ_PM} = {
     %{ $conf{PREREQ_PM} || {} }, %{ delete $conf{BUILD_REQUIRES} },
