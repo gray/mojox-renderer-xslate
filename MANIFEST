@@ -6,6 +6,7 @@ MANIFEST			This list of files
 MANIFEST.SKIP
 README
 t/00_compile.t
+t/default.t
 t/lite_app.t
 t/templates/foo.html.tx
 xt/kwalitee.t
