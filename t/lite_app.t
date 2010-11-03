@@ -5,7 +5,6 @@ use Test::More tests => 14;
 use Test::Mojo;
 
 use Mojolicious::Lite;
-use MojoX::Renderer::Xslate;
 
 # Silence
 app->log->level('fatal');
