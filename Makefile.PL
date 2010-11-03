@@ -10,8 +10,8 @@ my %conf = (
     ABSTRACT_FROM  => 'lib/MojoX/Renderer/Xslate.pm',
     PREREQ_PM      => {
         parent         => 0,
-        Mojo           => 0,
-        'Text::Xslate' => 0,
+        Mojolicious    => 0.999934,
+        'Text::Xslate' => 0.2013,
         'Try::Tiny'    => 0,
     },
     BUILD_REQUIRES => {
