@@ -28,7 +28,7 @@ get '/on-disk'      => 'foo';
 
 my $t = Test::Mojo->new;
 
-$t->get_ok('/exception')->status_is(500)->content_like(qr/error/i);
+$t->get_ok('/exception')->status_is(500)->content_is('');
 $t->get_ok('/foo/hello')->content_like(qr/^hello\s*$/);
 $t->get_ok('/with_include')->content_like(qr/^Hello\s*Include!Hallo\s*$/);
 $t->get_ok('/with_wrapper')->content_like(qr/^wrapped\s*$/);
