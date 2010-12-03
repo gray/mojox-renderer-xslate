@@ -1,5 +1,8 @@
 Revision history for MojoX-Renderer-Xslate
 
+0.03  Fri Dec  3 19:28:43 UTC 2010
+    - Updated test case to accomodate change in Xslate.
+
 0.02  Wed Nov  3 10:17:09 UTC 2010
     - Added support for __DATA__ sections by default. (GFUJI)
 
