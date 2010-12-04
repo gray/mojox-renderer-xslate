@@ -1,5 +1,10 @@
 Revision history for MojoX-Renderer-Xslate
 
+0.04  Sat Dec  4 12:29:27 UTC 2010
+    -  Updated test to reflect that a 500 error can produce either an error
+       string or no content, depending upon the environment or prereq
+       versions.
+
 0.03  Fri Dec  3 19:28:43 UTC 2010
     - Updated test case to accomodate change in Xslate.
 
