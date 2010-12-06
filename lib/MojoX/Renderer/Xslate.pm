@@ -162,7 +162,7 @@ L<http://rt.cpan.org/Public/Dist/Display.html?Name=MojoX-Renderer-Xslate>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/MojoX-Renderer-Xslate>
+L<http://search.cpan.org/dist/MojoX-Renderer-Xslate/>
 
 =back
 
