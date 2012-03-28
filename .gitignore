@@ -1,7 +1,8 @@
-MojoX-Renderer-Xslate-*
 MANIFEST.bak
+MYMETA.*
 Makefile
 Makefile.old
+MojoX-Renderer-Xslate-*
 blib/
 pm_to_blib
 t/tmp
