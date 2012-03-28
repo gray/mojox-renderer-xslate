@@ -30,7 +30,7 @@ sub _init {
     if ($app) {
         $cache_dir = $app->home->rel_dir('tmp/compiled_templates');
         push @path, Mojo::Command->new->get_all_data(
-            $app->renderer->default_template_class,
+            $app->renderer->classes->[0],
         );
     }
     else {
