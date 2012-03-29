@@ -1,5 +1,8 @@
 Revision history for MojoX-Renderer-Xslate
 
+0.06  Thu Mar 29 06:36:16 UTC 2012
+    - Required newer version of Mojolicious.
+
 0.05  Wed Mar 28 07:52:55 UTC 2012
     - Updated to use newer method instead of deprecated method. (garu)
 
