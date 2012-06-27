@@ -15,7 +15,7 @@ my $xslate = MojoX::Renderer::Xslate->build(
     mojo             => app,
     template_options => {
         syntax => 'TTerse',
-        path   => [ Mojo::Command->new->get_all_data(__PACKAGE__) ],
+        path   => [ Mojo::Loader->new->data(__PACKAGE__) ],
     },
 );
 app->renderer->add_handler(tt => $xslate);

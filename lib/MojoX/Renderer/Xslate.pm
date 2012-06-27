@@ -5,7 +5,7 @@ use warnings;
 use parent qw(Mojo::Base);
 
 use File::Spec ();
-use Mojo::Command;
+use Mojo::Loader;
 use Text::Xslate ();
 use Try::Tiny;
 
@@ -29,7 +29,7 @@ sub _init {
 
     if ($app) {
         $cache_dir = $app->home->rel_dir('tmp/compiled_templates');
-        push @path, Mojo::Command->new->get_all_data(
+        push @path, Mojo::Loader->new->data(
             $app->renderer->classes->[0],
         );
     }
