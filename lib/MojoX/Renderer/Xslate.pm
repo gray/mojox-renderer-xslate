@@ -9,7 +9,7 @@ use Mojo::Loader;
 use Text::Xslate ();
 use Try::Tiny;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 $VERSION = eval $VERSION;
 
 __PACKAGE__->attr('xslate');
