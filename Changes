@@ -1,5 +1,8 @@
 Revision history for MojoX-Renderer-Xslate
 
+0.09  Thu Jun  6 03:34:47 UTC 2013
+    - Fixed exception handling. (GH #4; RT #84324)
+
 0.08  Fri Jul  6 20:39:25 UTC 2012
     - Updated to handle another backwards-incompatible API change. (ISHIGAKI)
 
