@@ -7,7 +7,6 @@ use parent qw(Mojo::Base);
 use File::Spec ();
 use Mojo::Loader;
 use Text::Xslate ();
-use Try::Tiny;
 
 our $VERSION = '0.08';
 $VERSION = eval $VERSION;
@@ -38,9 +37,11 @@ sub _init {
     }
 
     my %config = (
-        cache_dir => $cache_dir,
-        path      => \@path,
-        %{ $args{template_options} || {} },
+        cache_dir    => $cache_dir,
+        path         => \@path,
+        warn_handler => sub { },
+        die_handler  => sub { },
+        %{$args{template_options} || {}},
     );
 
     $self->xslate(Text::Xslate->new(\%config));
@@ -55,16 +56,14 @@ sub _render {
         || $renderer->template_name($options);
     my %params = (%{$c->stash}, c => $c);
 
-    try {
+    local $@;
+    if (defined(my $inline = $options->{inline})) {
+        $$output = $self->xslate->render_string($inline, \%params);
+    }
+    else {
         $$output = $self->xslate->render($name, \%params);
     }
-    catch {
-        my $err = $_;
-        $c->app->log->error(qq(Template error in "$name": $err));
-        $c->render_exception($err);
-        $$output = '';
-        return 0;
-    };
+    die $@ if $@;
 
     return 1;
 }
