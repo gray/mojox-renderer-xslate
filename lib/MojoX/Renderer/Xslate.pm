@@ -2,16 +2,16 @@ package MojoX::Renderer::Xslate;
 
 use strict;
 use warnings;
-use parent qw(Mojo::Base);
 
 use File::Spec ();
+use Mojo::Base -base;
 use Mojo::Loader;
 use Text::Xslate ();
 
 our $VERSION = '0.08';
 $VERSION = eval $VERSION;
 
-__PACKAGE__->attr('xslate');
+has 'xslate';
 
 sub build {
     my $self = shift->SUPER::new(@_);

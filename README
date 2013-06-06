@@ -17,10 +17,9 @@ DEPENDENCIES
 This module requires these other modules and libraries:
 
     Mojo
-    parent
-    Text::Xslate
     Test::Mojo
     Test::More
+    Text::Xslate
 
 COPYRIGHT AND LICENCE
 
