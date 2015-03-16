@@ -4,6 +4,7 @@ use warnings;
 use Test::More;
 use Test::Mojo;
 
+use Mojo::Loader qw(data_section);
 use Mojolicious::Lite;
 
 # Silence
@@ -15,7 +16,7 @@ my $xslate = MojoX::Renderer::Xslate->build(
     mojo             => app,
     template_options => {
         syntax => 'TTerse',
-        path   => [ Mojo::Loader->new->data(__PACKAGE__) ],
+        path   => [ data_section(__PACKAGE__) ],
     },
 );
 app->renderer->add_handler(tt => $xslate);
