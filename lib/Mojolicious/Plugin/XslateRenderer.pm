@@ -22,7 +22,7 @@ __END__
 
 =head1 NAME
 
-Mojolicious::Plugin::Xslate - Text::Xslate plugin
+Mojolicious::Plugin::XslateRenderer - Text::Xslate plugin
 
 =head1 SYNOPSIS
 
@@ -40,12 +40,12 @@ Mojolicious::Plugin::Xslate - Text::Xslate plugin
 
 =head1 DESCRIPTION
 
-L<Mojolicous::Plugin::Xslate> is a simple loader for
+L<Mojolicous::Plugin::XslateRenderer> is a simple loader for
 L<MojoX::Renderer::Xslate>.
 
 =head1 METHODS
 
-L<Mojolicious::Plugin::Xslate> inherits all methods from
+L<Mojolicious::Plugin::XslateRenderer> inherits all methods from
 L<Mojolicious::Plugin> and overrides the following ones:
 
 =head2 register
