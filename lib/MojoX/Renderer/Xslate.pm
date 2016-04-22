@@ -56,16 +56,32 @@ sub _render {
         || $renderer->template_name($options);
     my %params = (%{$c->stash}, c => $c);
 
+    my $orig_err = $@;
+    my $xslate_err;
+
     local $@;
     if (defined(my $inline = $options->{inline})) {
-        $$output = $self->xslate->render_string($inline, \%params);
+        eval {
+            local $SIG{__DIE__} = sub { $xslate_err = shift };
+            $$output = $self->xslate->render_string($inline, \%params);
+        };
     }
     else {
-        $$output = $self->xslate->render($name, \%params);
+        eval {
+            local $SIG{__DIE__} = sub { $xslate_err = shift };
+            $$output = $self->xslate->render($name, \%params);
+        };
     }
-    die $@ if $@;
+    $@ = $xslate_err if $xslate_err;
 
-    return 1;
+    if ($@) {
+        $$output = undef;
+        if ( index( $@, 'Text::Xslate: LoadError: Cannot find \'exception.' ) < 0 ) {
+            die $@ unless $orig_err;
+        }
+    }
+
+    return;
 }
 
 
