@@ -42,9 +42,17 @@ $t->get_ok('/die_tpl')->status_is(500)->content_like(qr/error|^$/i);
 # (i.e.: EP renderer) 
 $t->get_ok('/die_code')->status_is(500)->content_like(qr/error|^$/i);
 
+$t->get_ok('/foo/hello')->content_like(qr/^hello\s*$/);
+$t->get_ok('/with_include')->content_like(qr/^Hello\s*Include!Hallo\s*$/);
+$t->get_ok('/with_wrapper')->content_like(qr/^wrapped\s*$/);
+$t->get_ok('/on-disk')->content_is(4);
+$t->get_ok('/not_found')->status_is(404)->content_like(qr/not found/i);
+
 {
     my $old_default = app->renderer->default_handler();
     app->renderer->default_handler('tt');
+
+    $t->get_ok('/exception')->status_is(500)->content_like(qr/error|^$/i);
 
     $t->get_ok('/die_tpl')->status_is(500)->content_like(qr/error|^$/i);
 
@@ -53,14 +61,14 @@ $t->get_ok('/die_code')->status_is(500)->content_like(qr/error|^$/i);
     # using Xslate engine which will not be able to locate that file
     $t->get_ok('/die_code')->status_is(500)->content_like(qr/error|^$/i);
 
+    $t->get_ok('/foo/hello')->content_like(qr/^hello\s*$/);
+    $t->get_ok('/with_include')->content_like(qr/^Hello\s*Include!Hallo\s*$/);
+    $t->get_ok('/with_wrapper')->content_like(qr/^wrapped\s*$/);
+    $t->get_ok('/on-disk')->content_is(4);
+    $t->get_ok('/not_found')->status_is(404)->content_like(qr/not found/i);
+
     app->renderer->default_handler($old_default);
 }
-
-$t->get_ok('/foo/hello')->content_like(qr/^hello\s*$/);
-$t->get_ok('/with_include')->content_like(qr/^Hello\s*Include!Hallo\s*$/);
-$t->get_ok('/with_wrapper')->content_like(qr/^wrapped\s*$/);
-$t->get_ok('/on-disk')->content_is(4);
-$t->get_ok('/not_found')->status_is(404)->content_like(qr/not found/i);
 
 done_testing;
 
