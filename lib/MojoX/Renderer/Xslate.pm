@@ -76,7 +76,9 @@ sub _render {
 
     if ($@) {
         $$output = undef;
-        if ( index( $@, 'Text::Xslate: LoadError: Cannot find \'exception.' ) < 0 ) {
+        if (    ( index( $@, 'Text::Xslate: LoadError: Cannot find \'exception.' ) < 0 )
+             && ( index( $@, 'Text::Xslate: LoadError: Cannot find \'not_found.' ) < 0 )
+        ) {
             die $@ unless $orig_err;
         }
     }
