@@ -1,5 +1,10 @@
 Revision history for MojoX-Renderer-Xslate
 
+0.11  Tue Apr 26 08:48:45 UTC 2016
+    - Can now be used as default handler for Mojolicious renderer
+      without inadvertently modifying HTTP status codes when optional
+      error templates are unavailable. (GH #6; HJANSEN)
+
 0.10  Mon Mar 16 18:46:27 UTC 2015
     - Fixed for another deprecated API.
     - Documentation fixes.  (RT #94530)

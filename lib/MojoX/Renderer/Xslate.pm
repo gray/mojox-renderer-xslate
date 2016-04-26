@@ -8,7 +8,7 @@ use Mojo::Base -base;
 use Mojo::Loader qw(data_section);
 use Text::Xslate ();
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 $VERSION = eval $VERSION;
 
 has 'xslate';
@@ -185,7 +185,7 @@ L<http://search.cpan.org/dist/MojoX-Renderer-Xslate/>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2010-2015 gray <gray at cpan.org>, all rights reserved.
+Copyright (C) 2010-2016 gray <gray at cpan.org>, all rights reserved.
 
 This library is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.
@@ -193,5 +193,6 @@ the same terms as Perl itself.
 =head1 AUTHOR
 
 gray, <gray at cpan.org>
+hjansen, <hjansen at cpan.org>
 
 =cut

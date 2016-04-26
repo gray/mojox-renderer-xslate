@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
 
 my %conf = (
     NAME           => 'MojoX::Renderer::Xslate',
-    AUTHOR         => 'gray <gray@cpan.org>',
+    AUTHOR         => [ 'gray <gray@cpan.org>', 'hjansen <hjansen@cpan.org>' ],
     LICENSE        => 'perl',
     VERSION_FROM   => 'lib/MojoX/Renderer/Xslate.pm',
     ABSTRACT_FROM  => 'lib/MojoX/Renderer/Xslate.pm',
