@@ -83,7 +83,7 @@ sub _render {
         }
     }
 
-    return;
+    return 1;   # return value needed for Mojolicious <= 6.32
 }
 
 
