@@ -1,5 +1,9 @@
 Revision history for MojoX-Renderer-Xslate
 
+0.12  Wed Apr 27 07:47:31 UTC 2016
+    - Restore compatibility with Mojolicious <= 6.32
+      (thanks, CPAN Testers)
+
 0.11  Tue Apr 26 08:48:45 UTC 2016
     - Can now be used as default handler for Mojolicious renderer
       without inadvertently modifying HTTP status codes when optional
