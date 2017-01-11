@@ -24,10 +24,10 @@ sub _init {
 
     my $app = $args{mojo} || $args{app};
     my $cache_dir;
-    my @path = $app->home->rel_dir('templates');
+    my @path = $app->home->rel_file('templates');
 
     if ($app) {
-        $cache_dir = $app->home->rel_dir('tmp/compiled_templates');
+        $cache_dir = $app->home->rel_file('tmp/compiled_templates');
         push @path, data_section(
             $app->renderer->classes->[0],
         );
