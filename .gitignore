@@ -9,3 +9,4 @@ t/tmp
 /local
 /cpanfile.snapshot
 /cpanfile.compatibility.snapshot
+*~
