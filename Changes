@@ -1,5 +1,8 @@
 Revision history for MojoX-Renderer-Xslate
 
+0.13
+    - Ensure compatibility with Mojolicious >= 7.14 (GH #7, takkyuuplayer)
+
 0.12  Wed Apr 27 07:47:31 UTC 2016
     - Restore compatibility with Mojolicious <= 6.32
       (thanks, CPAN Testers)
