@@ -60,18 +60,23 @@ sub _render {
     my $xslate_err;
 
     local $@;
-    if (defined(my $inline = $options->{inline})) {
-        eval {
-            local $SIG{__DIE__} = sub { $xslate_err = shift };
+    eval {
+        local $SIG{__DIE__} = sub { $xslate_err = shift };
+        if (defined(my $inline = $options->{inline})) {
             $$output = $self->xslate->render_string($inline, \%params);
-        };
-    }
-    else {
-        eval {
+        } else {
             local $SIG{__DIE__} = sub { $xslate_err = shift };
-            $$output = $self->xslate->render($name, \%params);
-        };
-    }
+            if (defined ($renderer->template_path($options))) {
+                $c->app->log->debug(qq{Rendering template "$name"});
+                $$output = $self->xslate->render($name, \%params);
+            } elsif (defined (my $data_template = $renderer->get_data_template($options))) {
+                $c->app->log->debug(qq{Rendering template "$name" from DATA section});
+                $$output = $self->xslate->render_string($data_template, \%params);
+            } else {
+                $c->app->log->debug(qq{Template "$name" not found})
+            }
+        }
+    };
     $@ = $xslate_err if $xslate_err;
 
     if ($@) {
