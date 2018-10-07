@@ -49,6 +49,7 @@ $t->get_ok('/bar/hello')->content_like(qr/^hello\s*$/);
 $t->get_ok('/with_include')->content_like(qr/^Hello\s*Include!Hallo\s*$/);
 $t->get_ok('/with_wrapper')->content_like(qr/^wrapped\s*$/);
 $t->get_ok('/on-disk')->content_is(4);
+$t->get_ok('/on-disk-ep')->content_is(4);
 $t->get_ok('/not_found')->status_is(404)->content_like(qr/not found/i);
 
 {
