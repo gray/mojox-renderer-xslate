@@ -62,10 +62,10 @@ sub _render {
     local $@;
     eval {
         local $SIG{__DIE__} = sub { $xslate_err = shift };
+
         if (defined(my $inline = $options->{inline})) {
             $$output = $self->xslate->render_string($inline, \%params);
         } else {
-            local $SIG{__DIE__} = sub { $xslate_err = shift };
             if (defined ($renderer->template_path($options))) {
                 $c->app->log->debug(qq{Rendering template "$name"});
                 $$output = $self->xslate->render($name, \%params);
